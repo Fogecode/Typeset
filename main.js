@@ -54858,7 +54858,7 @@ async function replaceEmbeds(text, ctx, warnings) {
       try {
         dataUrl = await ctx.resolveEmbed(raw);
       } catch (error) {
-        console.error("[html-exporter] resolveEmbed failed for " + notePath, error);
+        console.error("[typeset] resolveEmbed failed for " + notePath, error);
         dataUrl = null;
       }
     }
@@ -55010,7 +55010,7 @@ async function renderMarkdown(markdown, ctx) {
           body = es_default.highlight(sourceText, { language: lang, ignoreIllegals: true }).value;
           languageClass = "hljs language-" + lang;
         } catch (error) {
-          console.error("[html-exporter] highlight failed for " + lang, error);
+          console.error("[typeset] highlight failed for " + lang, error);
           body = escapeHtml(sourceText);
         }
       }
@@ -56430,7 +56430,7 @@ function buildDocument(opts) {
     "<head>",
     '<meta charset="utf-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
-    '<meta name="generator" content="Obsidian HTML Exporter">',
+    '<meta name="generator" content="Obsidian Typeset">',
     '<meta name="color-scheme" content="' + (opts.theme.mode === "dark" ? "dark light" : "light dark") + '">',
     "<title>" + esc(opts.title) + "</title>",
     "<style>",
@@ -57997,7 +57997,7 @@ function makeResolveEmbed(plugin, file) {
       const binary = await plugin.app.vault.readBinary(dest);
       return "data:" + mime + ";base64," + toBase64(binary);
     } catch (error) {
-      console.error("[html-exporter] failed to embed " + linkpath, error);
+      console.error("[typeset] failed to embed " + linkpath, error);
       return null;
     }
   };
@@ -58048,7 +58048,7 @@ var HtmlPreviewModal = class extends import_obsidian.Modal {
     const { contentEl, modalEl, titleEl } = this;
     titleEl.setText(this.title);
     contentEl.empty();
-    contentEl.addClass("html-exporter-preview");
+    contentEl.addClass("typeset-preview");
     Object.assign(modalEl.style, { width: "90vw", maxWidth: "90vw" });
     Object.assign(contentEl.style, { padding: "0" });
     const frame = contentEl.createEl("iframe", {
@@ -58077,7 +58077,7 @@ async function openInBrowser(plugin, vaultPath) {
       vaultPath
     );
   } catch (error) {
-    console.error("[html-exporter] adapter.getFullPath failed", error);
+    console.error("[typeset] adapter.getFullPath failed", error);
   }
   if (absolute) {
     try {
@@ -58087,7 +58087,7 @@ async function openInBrowser(plugin, vaultPath) {
         return true;
       }
     } catch (error) {
-      console.error("[html-exporter] electron.shell.openPath failed", error);
+      console.error("[typeset] electron.shell.openPath failed", error);
     }
   }
   if (absolute) {
@@ -58095,7 +58095,7 @@ async function openInBrowser(plugin, vaultPath) {
       window.open("file://" + encodeURI(absolute.replace(/\\/g, "/")), "_blank");
       return true;
     } catch (error) {
-      console.error("[html-exporter] window.open fallback failed", error);
+      console.error("[typeset] window.open fallback failed", error);
     }
   }
   return false;
@@ -58191,7 +58191,7 @@ var HtmlExporterSettingTab = class extends import_obsidian2.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.id = "html-exporter-settings";
+    containerEl.id = "typeset-settings";
     new import_obsidian2.Setting(containerEl).setName("Appearance").setHeading();
     new import_obsidian2.Setting(containerEl).setName("Theme").setDesc("Visual style used for the exported page. Every export embeds all themes, so readers can switch later.").addDropdown((dropdown) => {
       for (const theme of THEMES) {
@@ -58265,16 +58265,16 @@ var ThemePickerModal = class extends import_obsidian3.Modal {
     const { contentEl, titleEl } = this;
     titleEl.setText("Export active note with theme\u2026");
     contentEl.empty();
-    contentEl.addClass("html-exporter-theme-picker");
+    contentEl.addClass("typeset-theme-picker");
     for (const theme of THEMES) {
       const row = contentEl.createEl("button", {
-        cls: "html-exporter-theme-row",
+        cls: "typeset-theme-row",
         attr: { type: "button" }
       });
       if (theme.id === this.plugin.settings.themeId) row.addClass("is-active");
-      row.createSpan({ cls: "html-exporter-theme-name", text: theme.name });
+      row.createSpan({ cls: "typeset-theme-name", text: theme.name });
       row.createSpan({
-        cls: "html-exporter-theme-desc",
+        cls: "typeset-theme-desc",
         text: theme.mode + " \u2014 " + theme.description
       });
       row.addEventListener("click", () => {
@@ -58351,7 +58351,7 @@ var HtmlExporterPlugin = class extends import_obsidian3.Plugin {
       new import_obsidian3.Notice("Exported " + file.basename + " \u2192 " + outputPath);
       return outputPath;
     } catch (error) {
-      console.error("[html-exporter] export failed", error);
+      console.error("[typeset] export failed", error);
       new import_obsidian3.Notice("HTML export failed: " + describeError(error), 8e3);
       return null;
     }
@@ -58364,7 +58364,7 @@ var HtmlExporterPlugin = class extends import_obsidian3.Plugin {
       const { html: html2 } = await renderNoteDocument(this, file, this.settings.themeId);
       openHtmlPreview(this.app, html2, file.basename + " \u2014 preview");
     } catch (error) {
-      console.error("[html-exporter] preview failed", error);
+      console.error("[typeset] preview failed", error);
       new import_obsidian3.Notice("Preview failed: " + describeError(error), 8e3);
     }
   }

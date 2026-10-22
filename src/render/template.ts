@@ -154,7 +154,7 @@ export function buildDocument(opts: DocumentOptions): string {
     "<head>",
     '<meta charset="utf-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
-    '<meta name="generator" content="Obsidian HTML Exporter">',
+    '<meta name="generator" content="Obsidian Typeset">',
     '<meta name="color-scheme" content="' + (opts.theme.mode === "dark" ? "dark light" : "light dark") + '">',
     "<title>" + esc(opts.title) + "</title>",
     "<style>",

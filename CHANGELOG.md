@@ -22,4 +22,4 @@
 - 插件以 CommonJS 格式打包，入口为 `export default class extends Plugin`
 - 导出结果为单文件，CSS/JS 全部内联，零外部请求
 
-[1.1.0]: https://github.com/Fogecode/obsidian-html-exporter/releases/tag/1.1.0
+[1.1.0]: https://github.com/Fogecode/typeset/releases/tag/1.1.0

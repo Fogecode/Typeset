@@ -47,7 +47,7 @@ const FEATURE_ROWS: Array<{ key: keyof ExportFeatures; name: string; desc: strin
   },
 ];
 
-/** Settings UI, mounted under Settings -> Community plugins -> HTML Exporter. */
+/** Settings UI, mounted under Settings -> Community plugins -> Typeset. */
 export class HtmlExporterSettingTab extends PluginSettingTab {
   plugin: HtmlExporterPlugin;
 
@@ -60,7 +60,7 @@ export class HtmlExporterSettingTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
     // styles.css targets this id; keep it stable.
-    containerEl.id = "html-exporter-settings";
+    containerEl.id = "typeset-settings";
 
     new Setting(containerEl).setName("Appearance").setHeading();
 

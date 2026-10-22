@@ -1,7 +1,7 @@
 {
-  "name": "obsidian-html-exporter",
+  "name": "obsidian-typeset",
   "version": "1.1.0",
-  "description": "Export the active Obsidian note to a beautifully styled, self-contained HTML file with switchable visual themes.",
+  "description": "Export the active Obsidian note to a beautifully typeset, self-contained HTML file with switchable visual themes.",
   "main": "main.js",
   "scripts": {
     "dev": "node build.mjs --watch",
@@ -13,19 +13,20 @@
     "obsidian-plugin",
     "html",
     "export",
+    "typeset",
     "markdown",
     "themes"
   ],
-  "author": "AloneFengchen",
+  "author": "Fogecode",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Fogecode/obsidian-html-exporter.git"
+    "url": "https://github.com/Fogecode/typeset.git"
   },
   "bugs": {
-    "url": "https://github.com/Fogecode/obsidian-html-exporter/issues"
+    "url": "https://github.com/Fogecode/typeset/issues"
   },
-  "homepage": "https://github.com/Fogecode/obsidian-html-exporter#readme",
+  "homepage": "https://github.com/Fogecode/typeset#readme",
   "dependencies": {
     "highlight.js": "^11.11.0",
     "marked": "^15.0.0"

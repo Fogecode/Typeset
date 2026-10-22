@@ -17,18 +17,18 @@ class ThemePickerModal extends Modal {
     const { contentEl, titleEl } = this;
     titleEl.setText("Export active note with theme…");
     contentEl.empty();
-    contentEl.addClass("html-exporter-theme-picker");
+    contentEl.addClass("typeset-theme-picker");
 
     for (const theme of THEMES) {
       const row = contentEl.createEl("button", {
-        cls: "html-exporter-theme-row",
+        cls: "typeset-theme-row",
         attr: { type: "button" },
       });
       if (theme.id === this.plugin.settings.themeId) row.addClass("is-active");
 
-      row.createSpan({ cls: "html-exporter-theme-name", text: theme.name });
+      row.createSpan({ cls: "typeset-theme-name", text: theme.name });
       row.createSpan({
-        cls: "html-exporter-theme-desc",
+        cls: "typeset-theme-desc",
         text: theme.mode + " — " + theme.description,
       });
 
@@ -44,7 +44,7 @@ class ThemePickerModal extends Modal {
   }
 }
 
-/** Obsidian entry point: commands, ribbon icon and settings for the HTML exporter. */
+/** Obsidian entry point: commands, ribbon icon and settings for Typeset. */
 export default class HtmlExporterPlugin extends Plugin {
   /** Never aliases DEFAULT_SETTINGS, so writes cannot leak into the defaults. */
   settings: HtmlExporterSettings = {
@@ -116,7 +116,7 @@ export default class HtmlExporterPlugin extends Plugin {
       new Notice("Exported " + file.basename + " → " + outputPath);
       return outputPath;
     } catch (error) {
-      console.error("[html-exporter] export failed", error);
+      console.error("[typeset] export failed", error);
       new Notice("HTML export failed: " + describeError(error), 8000);
       return null;
     }
@@ -131,7 +131,7 @@ export default class HtmlExporterPlugin extends Plugin {
       const { html } = await renderNoteDocument(this, file, this.settings.themeId);
       openHtmlPreview(this.app, html, file.basename + " — preview");
     } catch (error) {
-      console.error("[html-exporter] preview failed", error);
+      console.error("[typeset] preview failed", error);
       new Notice("Preview failed: " + describeError(error), 8000);
     }
   }

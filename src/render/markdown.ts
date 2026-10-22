@@ -212,7 +212,7 @@ async function replaceEmbeds(
       try {
         dataUrl = await ctx.resolveEmbed(raw);
       } catch (error) {
-        console.error("[html-exporter] resolveEmbed failed for " + notePath, error);
+        console.error("[typeset] resolveEmbed failed for " + notePath, error);
         dataUrl = null;
       }
     }
@@ -418,7 +418,7 @@ export async function renderMarkdown(markdown: string, ctx: RenderContext): Prom
           body = hljs.highlight(sourceText, { language: lang, ignoreIllegals: true }).value;
           languageClass = "hljs language-" + lang;
         } catch (error) {
-          console.error("[html-exporter] highlight failed for " + lang, error);
+          console.error("[typeset] highlight failed for " + lang, error);
           body = escapeHtml(sourceText);
         }
       }

@@ -1,4 +1,4 @@
-# Obsidian 在线实时渲染 HTML
+# Typeset
 
 > 把当前笔记一键导出成**美观、自包含、可切换 8 套风格**的 HTML 文件。
 
@@ -24,13 +24,13 @@
 将以下三个文件放入仓库的插件目录：
 
 ```
-<你的仓库>/.obsidian/plugins/html-exporter/
+<你的仓库>/.obsidian/plugins/typeset/
 ├── main.js
 ├── manifest.json
 └── styles.css
 ```
 
-然后在 **设置 → 第三方插件** 中启用 **HTML Exporter**。
+然后在 **设置 → 第三方插件** 中启用 **Typeset**。
 若未出现，重载 Obsidian（`Ctrl+P` → `Reload app without saving`）。
 
 ## 使用
@@ -85,6 +85,7 @@
 npm install          # 安装依赖
 npm run dev          # 监听模式，自动重新打包
 npm run build        # 生产构建
+npm run typecheck    # 类型检查
 ```
 
 构建产物为 CommonJS 格式的 `main.js`（Obsidian 通过 `require()` 加载，必须是 CJS）。
@@ -99,6 +100,7 @@ src/
 ├── types.ts           类型契约
 ├── themes/            基础排版系统 + 8 套风格
 └── render/            Markdown 渲染与页面模板
+scripts/               离线加载验证工具
 ```
 
 ## 许可

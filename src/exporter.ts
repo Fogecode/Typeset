@@ -126,7 +126,7 @@ function makeResolveEmbed(
       const binary = await plugin.app.vault.readBinary(dest);
       return "data:" + mime + ";base64," + toBase64(binary);
     } catch (error) {
-      console.error("[html-exporter] failed to embed " + linkpath, error);
+      console.error("[typeset] failed to embed " + linkpath, error);
       return null;
     }
   };
@@ -196,7 +196,7 @@ export class HtmlPreviewModal extends Modal {
     const { contentEl, modalEl, titleEl } = this;
     titleEl.setText(this.title);
     contentEl.empty();
-    contentEl.addClass("html-exporter-preview");
+    contentEl.addClass("typeset-preview");
 
     Object.assign(modalEl.style, { width: "90vw", maxWidth: "90vw" });
     Object.assign(contentEl.style, { padding: "0" });
@@ -231,7 +231,7 @@ async function openInBrowser(plugin: HtmlExporterPlugin, vaultPath: string): Pro
       vaultPath
     );
   } catch (error) {
-    console.error("[html-exporter] adapter.getFullPath failed", error);
+    console.error("[typeset] adapter.getFullPath failed", error);
   }
 
   if (absolute) {
@@ -243,7 +243,7 @@ async function openInBrowser(plugin: HtmlExporterPlugin, vaultPath: string): Pro
         return true;
       }
     } catch (error) {
-      console.error("[html-exporter] electron.shell.openPath failed", error);
+      console.error("[typeset] electron.shell.openPath failed", error);
     }
   }
 
@@ -252,7 +252,7 @@ async function openInBrowser(plugin: HtmlExporterPlugin, vaultPath: string): Pro
       window.open("file://" + encodeURI(absolute.replace(/\\/g, "/")), "_blank");
       return true;
     } catch (error) {
-      console.error("[html-exporter] window.open fallback failed", error);
+      console.error("[typeset] window.open fallback failed", error);
     }
   }
   return false;
