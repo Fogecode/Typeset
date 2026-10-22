@@ -1,0 +1,61 @@
+/* HTML Exporter — in-Obsidian UI only.
+   The exported HTML carries its own inline styles and never loads this file. */
+
+#html-exporter-settings .setting-item-description {
+  padding-bottom: 8px;
+}
+
+#html-exporter-settings .setting-item-control {
+  min-width: 220px;
+}
+
+/* Theme preview grid inside the settings tab */
+#html-exporter-settings .hx-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin: 8px 0 16px;
+}
+
+#html-exporter-settings .hx-theme-card {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s, 6px);
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+#html-exporter-settings .hx-theme-card:hover {
+  border-color: var(--interactive-accent);
+}
+
+#html-exporter-settings .hx-theme-card.is-active {
+  border-color: var(--interactive-accent);
+  background: var(--background-modifier-hover);
+}
+
+#html-exporter-settings .hx-theme-name {
+  font-weight: 600;
+  display: block;
+}
+
+#html-exporter-settings .hx-theme-desc {
+  font-size: var(--font-ui-smaller, 12px);
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* Export preview modal */
+.hx-preview-modal {
+  width: 90vw;
+  max-width: 1200px;
+  height: 85vh;
+}
+
+.hx-preview-modal .hx-preview-frame {
+  width: 100%;
+  height: calc(100% - 48px);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s, 6px);
+  background: #fff;
+}

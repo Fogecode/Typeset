@@ -1,0 +1,10 @@
+{
+  "id": "html-exporter",
+  "name": "HTML Exporter",
+  "version": "1.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Export the active note to a beautifully styled, self-contained HTML file with switchable visual themes.",
+  "author": "Pi Workspaces",
+  "authorUrl": "https://github.com/",
+  "isDesktopOnly": false
+}

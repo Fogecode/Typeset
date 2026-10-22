@@ -1,0 +1,67 @@
+name: Bug 报告
+description: 报告一个可复现的问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请尽量填写完整，便于快速定位。
+  - type: input
+    id: obsidian-version
+    attributes:
+      label: Obsidian 版本
+      placeholder: "例如 1.12.4"
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: 插件版本
+      placeholder: "例如 1.1.0"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: 操作系统
+      placeholder: "例如 Windows 11 / macOS 15 / Ubuntu 24.04"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 打开笔记 xxx
+        2. 点击缎带按钮
+        3. 出现 ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: console
+    attributes:
+      label: 控制台报错（如有）
+      description: "打开 Obsidian 开发者工具（Ctrl+Shift+I）粘贴相关报错"
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: markdown
+    attributes:
+      label: 最小可复现 Markdown（若与渲染有关）
+      render: markdown
+    validations:
+      required: false
