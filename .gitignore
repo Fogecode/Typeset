@@ -44,3 +44,9 @@ data/verify-output/
 data/shots*/
 data/_chrome*/
 *.png.tmp
+
+# ---- 本地效果图素材（不上传；README 引用的是 docs/images 下的压缩版）----
+img插件介绍图/
+
+# ---- 本地操作指南（内部文档，不上传）----
+README操作指南.md
