@@ -53,3 +53,9 @@ README操作指南.md
 
 # ---- 发布用压缩包（手动打包给用户下载，不进版本库）----
 *.zip
+
+# ---- 自述备份文档（本地留存，不上传）----
+README-bak*.md
+README-archived*.md
+docs/README-bak*.md
+docs/README-archived*.md
