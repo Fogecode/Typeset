@@ -8,7 +8,7 @@
 一个 Obsidian 插件。点一下按钮，当前笔记就会变成一份排版精致的独立 HTML 文件——
 单文件、可离线、随手能发给别人。
 
-![Typeset 导出效果 · Paper 主题](docs/images/theme-paper.png)
+![在 Obsidian 里实时预览渲染效果（右侧为 Typeset Live 插件的网页预览标签页）](docs/images/preview-typeset-live.png)
 
 ---
 
